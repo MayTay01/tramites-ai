@@ -11,7 +11,7 @@ async function sendMessage() {
 
     try {
         // Enviar al servidor Node
-        const response = await fetch("http://localhost:3000/api/chat", {
+        const response = await fetch("https://tramites-ai-1.onrender.com/api/chat", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ message: message })
@@ -36,4 +36,5 @@ function addMessage(text, className) {
     box.appendChild(div);
     box.scrollTop = box.scrollHeight;
 }
+
 
