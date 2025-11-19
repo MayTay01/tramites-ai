@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+}
+
+header {
+    background: #007BFF;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #0001;
+}
+
+#chat-box {
+    height: 350px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+    background: #fafafa;
+}
+
+.user-message {
+    background: #007BFF;
+    color: white;
+    padding: 10px;
+    margin: 10px 0;
+    width: fit-content;
+    border-radius: 10px;
+}
+
+.ai-message {
+    background: #e0e0e0;
+    padding: 10px;
+    margin: 10px 0;
+    width: fit-content;
+    border-radius: 10px;
+}
+
+#input-area {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+textarea {
+    width: 80%;
+    height: 60px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 16px;
+}
+
+button {
+    padding: 15px;
+    background: #007BFF;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #005fcc;
+}
+
+#generate-doc {
+    margin-top: 20px;
+    width: 100%;
+    background: #28a745;
+}

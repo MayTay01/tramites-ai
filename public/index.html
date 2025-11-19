@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMARTSAT</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header>SMARTSAT</header>
+
+<div class="container">
+
+    <h3>Asistente de Trámites</h3>
+    <p>Escribe tu duda y la IA te explicará cómo hacer tu trámite paso a paso.</p>
+
+    <div id="chat-box"></div>
+
+    <div id="input-area">
+        <textarea id="user-input" placeholder="Describe el trámite que necesitas..."></textarea>
+        <button onclick="sendMessage()">Enviar</button>
+    </div>
+
+    <button id="generate-doc" onclick="generateDocument()">Generar Documento PDF</button>
+
+</div>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
