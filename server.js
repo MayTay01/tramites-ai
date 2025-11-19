@@ -7,10 +7,10 @@ dotenv.config();
 
 const app = express();
 
-// Primero parsear JSON
+
 app.use(express.json());
 
-// Luego habilitar CORS (Netlify → Render)
+
 app.use(cors({
     origin: "https://tramites-ai.netlify.app",
     methods: ["GET", "POST"],
@@ -44,5 +44,6 @@ app.post("/api/chat", async (req, res) => {
 app.listen(3000, () => {
     console.log("Servidor Groq listo en http://localhost:3000");
 });
+
 
 
