@@ -6,34 +6,43 @@ import Groq from "groq-sdk";
 dotenv.config();
 
 const app = express();
+
+// Primero parsear JSON
 app.use(express.json());
-app.use(cors());
+
+// Luego habilitar CORS (Netlify → Render)
+app.use(cors({
+    origin: "https://tramites-ai.netlify.app",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"]
+}));
 
 const client = new Groq({
-  apiKey: process.env.GROQ_API_KEY
+    apiKey: process.env.GROQ_API_KEY
 });
 
 app.post("/api/chat", async (req, res) => {
-  try {
-    const userMessage = req.body.message;
+    try {
+        const userMessage = req.body.message;
 
-    const completion = await client.chat.completions.create({
-  model: "llama-3.1-8b-instant",
+        const completion = await client.chat.completions.create({
+            model: "llama-3.1-8b-instant",
+            messages: [
+                { role: "system", content: "Eres un experto en trámites del gobierno de México. Responde claro y paso por paso." },
+                { role: "user", content: userMessage }
+            ]
+        });
 
-      messages: [
-        { role: "system", content: "Eres un experto en trámites del gobierno de México. Responde claro y paso por paso." },
-        { role: "user", content: userMessage }
-      ]
-    });
+        res.json({ reply: completion.choices[0].message.content });
 
-    res.json({ reply: completion.choices[0].message.content });
-
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Error al conectarse a Groq." });
-  }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Error al conectarse a Groq." });
+    }
 });
 
 app.listen(3000, () => {
-  console.log("Servidor Groq listo en http://localhost:3000");
+    console.log("Servidor Groq listo en http://localhost:3000");
 });
+
+
